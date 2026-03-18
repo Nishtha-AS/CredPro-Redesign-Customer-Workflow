@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Other Relationships</title>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="screen1.css" />
+  <style>
+    .main-layout {
+      display: flex;
+      background-color: #f1f5f9;
+      min-height: calc(100vh - 80px);
+      margin: 15px;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    .relationship-container {
+      height: 100%;
+      width: 100%;
+    }
+
+    .relationship-card {
+      width: 100%;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 0;
+      box-shadow: 0 0 0 1px #e2e8f0 inset;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .relationship-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+      background: #3b82f6;
+      padding: 16px 20px;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px 32px;
+      padding: 24px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="top-nav">
+      <div class="header-left">
+        <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+        <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+        <div class="search-wrapper">
+          <img src="assets/icon-search.svg" class="icon" alt="Search" />
+          <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+          <select><option>Search by</option></select>
+        </div>
+      </div>
+      <div class="header-right">
+        <img src="assets/icon-inbox.svg" alt="Inbox" />
+        <img src="assets/icon-filter.svg" alt="Tasks" />
+        <img src="assets/icon-help.svg" alt="Help" />
+        <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+        <img src="assets/icon-user.svg" alt="User Add" />
+        <div class="user-profile">
+          <div class="avatar">VA</div>
+          <div class="user-info">
+            <strong>Vivek Agnihotri</strong><br />
+            <span>Business</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar + Content -->
+    <div class="main-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="client-info">
+          <p>Client Name <strong>J K Singh</strong></p>
+          <p>Group <strong>J K Singh & Company</strong></p>
+        </div>
+        <div class="sidebar-actions">
+          <button>Validations</button>
+          <button>Operations</button>
+        </div>
+        <div class="sidebar-sections">
+          <div class="section orange">
+            <h4>Heading 01</h4>
+            <ul>
+              <li onclick="navigateTo('general-info.html')">General Information</li>
+              <li onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+              <li onclick="navigateTo('associates.html')">Associate details</li>
+              <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+              <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+              <li onclick="navigateTo('address.html')">Address</li>
+            </ul>
+          </div>
+          <div class="section blue">
+            <h4>Heading 02</h4>
+            <ul>
+              <li onclick="navigateTo('litigation.html')">Litigation</li>
+              <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+              <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+            </ul>
+          </div>
+          <div class="section purple">
+            <h4>Heading 03</h4>
+            <ul>
+              <li onclick="navigateTo('alias.html')">Alias</li>
+              <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+              <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+              <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+              <li class="active" onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+            </ul>
+          </div>
+          <div class="section red">
+            <h4>Heading 04</h4>
+            <ul>
+              <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+              <li onclick="navigateTo('relationships.html')">Relationships</li>
+              <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="relationship-container">
+          <div class="relationship-card">
+            <div class="relationship-title">Possibility Of Other relationships (Cross sell)</div>
+            <div class="checkbox-grid">
+              <label class="checkbox-item"><input type="checkbox" /> FD</label>
+              <label class="checkbox-item"><input type="checkbox" /> MF</label>
+              <label class="checkbox-item"><input type="checkbox" /> Life Insurance</label>
+              <label class="checkbox-item"><input type="checkbox" /> Health Insurance</label>
+              <label class="checkbox-item"><input type="checkbox" /> Genral Insurance</label>
+              <label class="checkbox-item"><input type="checkbox" /> RD</label>
+              <label class="checkbox-item"><input type="checkbox" /> POS</label>
+              <label class="checkbox-item"><input type="checkbox" /> HC</label>
+              <label class="checkbox-item"><input type="checkbox" /> Wheels</label>
+              <label class="checkbox-item"><input type="checkbox" /> Gold Loan</label>
+              <label class="checkbox-item"><input type="checkbox" /> Consumer Loan</label>
+              <label class="checkbox-item"><input type="checkbox" /> CA</label>
+              <label class="checkbox-item"><input type="checkbox" /> SA</label>
+              <label class="checkbox-item"><input type="checkbox" /> Salary Loan</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>

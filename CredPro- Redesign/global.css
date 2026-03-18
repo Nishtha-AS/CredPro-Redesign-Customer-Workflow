@@ -1,0 +1,127 @@
+/* Reset and Base Typography */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e9ebed;
+    color: #000;
+    line-height: 1.5;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul, ol {
+    padding-left: 20px;
+  }
+  
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  
+  /* Buttons */
+  button {
+    font-family: inherit;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Inputs and Forms */
+  input, select, textarea {
+    font-family: inherit;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    outline: none;
+    box-sizing: border-box;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #2f4396;
+    box-shadow: 0 0 2px #2f4396;
+  }
+  
+  select {
+    background-color: #fff;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  
+  /* Utility Classes */
+  .text-center {
+    text-align: center;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .text-muted {
+    color: #777;
+  }
+  .text-bold {
+    font-weight: 600;
+  }
+  .bg-white {
+    background-color: #fff;
+  }
+  .rounded {
+    border-radius: 10px;
+  }
+  
+  /* Flex Helpers */
+  .flex {
+    display: flex;
+  }
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  
+  /* Shadows */
+  .shadow {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  
+  /* Margin / Padding helpers */
+  .mt-10 { margin-top: 10px; }
+  .mt-20 { margin-top: 20px; }
+  .mb-10 { margin-bottom: 10px; }
+  .mb-20 { margin-bottom: 20px; }
+  .p-10  { padding: 10px; }
+  .p-20  { padding: 20px; }
+  

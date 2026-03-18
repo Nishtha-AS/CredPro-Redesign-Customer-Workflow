@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Relationships</title>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="screen1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    .rm-container {
+      padding: 32px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 0 1px #e5e7eb;
+    }
+
+    .rm-header {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .rm-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+
+    .rm-table th,
+    .rm-table td {
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .rm-table th {
+      background-color: #f8fafc;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .rm-table td {
+      background-color: #ffffff;
+    }
+
+    .rm-row-inputs {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .rm-row-inputs select,
+    .rm-row-inputs input[type="text"] {
+      padding: 10px 12px;
+      font-size: 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: #f9fafb;
+      min-width: 160px;
+    }
+
+    .rm-row-inputs input[type="checkbox"] {
+      transform: scale(1.3);
+    }
+
+    .rm-actions img {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+    }
+
+    .rm-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .rm-save-button {
+      background-color: #2563eb;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .rm-save-button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .delete-icon {
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      filter: invert(37%) sepia(84%) saturate(7500%) hue-rotate(346deg);
+    }
+  </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="top-nav">
+          <div class="header-left">
+            <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+            <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+            <div class="search-wrapper">
+              <img src="assets/icon-search.svg" class="icon" alt="Search" />
+              <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+              <select><option>Search by</option></select>
+            </div>
+          </div>
+          <div class="header-right">
+            <img src="assets/icon-inbox.svg" alt="Inbox" />
+            <img src="assets/icon-filter.svg" alt="Tasks" />
+            <img src="assets/icon-help.svg" alt="Help" />
+            <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+            <img src="assets/icon-user.svg" alt="User Add" />
+            <div class="user-profile">
+              <div class="avatar">VA</div>
+              <div class="user-info">
+                <strong>Vivek Agnihotri</strong>
+                <span>Business</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+    <!-- Main Layout -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="client-info">
+            <p>Client Name <strong>J K Singh</strong></p>
+            <p>Group <strong>J K Singh & Company</strong></p>
+          </div>
+          <div class="sidebar-actions">
+            <button>Validations</button>
+            <button>Operations</button>
+          </div>
+          <div class="sidebar-sections">
+              <div class="section orange">
+                <h4>Heading 01</h4>
+                <ul>
+                  <li onclick="navigateTo('general-info.html')">General Information</li>
+                  <li onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+                  <li onclick="navigateTo('associates.html')">Associate details</li>
+                  <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+                  <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+                  <li onclick="navigateTo('address.html')">Address</li>
+                </ul>
+              </div>
+              <div class="section blue">
+                <h4>Heading 02</h4>
+                <ul>
+                  <li onclick="navigateTo('litigation.html')">Litigation</li>
+                  <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+                  <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+                </ul>
+              </div>
+              <div class="section purple">
+                <h4>Heading 03</h4>
+                <ul>
+                  <li onclick="navigateTo('alias.html')">Alias</li>
+                  <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+                  <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+                  <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+                  <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+                </ul>
+              </div>
+              <div class="section red">
+                <h4>Heading 04</h4>
+                <ul>
+                  <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+                  <li class="active" onclick="navigateTo('relationships.html')">Relationships</li>
+                  <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+                </ul>
+              </div>
+        </aside>
+
+        <div class="rm-container">
+          <div class="rm-header">Relationship</div>
+    
+          <table class="rm-table" id="rm-table">
+            <thead>
+              <tr>
+                <th>Relationship Manager</th>
+                <th>Business Unit</th>
+                <th>Is Lead RM</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="rm-body">
+              <tr>
+                <td>Rajni Pancholi</td>
+                <td>Agri and SME</td>
+                <td>Yes</td>
+                <td><img src="assets/delete.svg" class="delete-icon" onclick="deleteRow(this)" /></td>
+              </tr>
+            </tbody>
+          </table>
+    
+          <div class="rm-row-inputs">
+            <select id="rm-name">
+              <option value="">--Select--</option>
+              <option>Rajni Pancholi</option>
+              <option>Ravi Verma</option>
+              <option>Sneha Singh</option>
+            </select>
+            <input type="text" id="rm-unit" placeholder="Business Unit" />
+            <input type="checkbox" id="rm-lead" />
+            <div class="rm-actions">
+              <img src="assets/save.svg" alt="Save" onclick="saveRM()" title="Save" />
+              <img src="assets/delete.svg" alt="Clear" onclick="clearRMFields()" title="Clear" />
+            </div>
+          </div>
+    
+          <button class="rm-save-button">Save</button>
+        </div>
+      </div>
+    
+      <script>
+        function saveRM() {
+          const name = document.getElementById('rm-name').value.trim();
+          const unit = document.getElementById('rm-unit').value.trim();
+          const isLead = document.getElementById('rm-lead').checked ? 'Yes' : 'No';
+    
+          if (!name || !unit) {
+            alert("Please enter both Relationship Manager and Business Unit.");
+            return;
+          }
+    
+          const tbody = document.getElementById("rm-body");
+          const tr = document.createElement("tr");
+    
+          tr.innerHTML = `
+            <td>${name}</td>
+            <td>${unit}</td>
+            <td>${isLead}</td>
+            <td><img src="assets/delete 2.svg" class="delete-icon" onclick="deleteRow(this)" /></td>
+          `;
+    
+          tbody.appendChild(tr);
+          clearRMFields();
+        }
+    
+        function deleteRow(btn) {
+          const row = btn.closest("tr");
+          row.remove();
+        }
+    
+        function clearRMFields() {
+          document.getElementById("rm-name").value = "";
+          document.getElementById("rm-unit").value = "";
+          document.getElementById("rm-lead").checked = false;
+        }
+      </script>
+       <script>
+        function navigateTo(path) {
+          window.location.href = path;
+        }
+      </script>
+    </body>
+    </html>
+    

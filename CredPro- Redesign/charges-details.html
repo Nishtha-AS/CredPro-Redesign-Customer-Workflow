@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Charges</title>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="screen1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+  .charges-wrapper {
+    width: 100%;
+  }
+
+  .charges-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .charge-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    width: 120%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  .charge-fields {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Changed to 4 fields per row */
+    gap: 20px;
+    width: 100%;
+  }
+
+  .charge-fields label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .charge-fields input,
+  .charge-fields textarea,
+  .charge-fields select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+  }
+
+  .charge-fields textarea {
+    resize: none;
+  }
+
+  .charge-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .charge-actions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .charge-actions img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+    .charges-header h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .charges-header .add-btn {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 14px;
+      color: #1d4ed8;
+      cursor: pointer;
+    }
+
+    .charges-header .add-btn img {
+      width: 18px;
+      margin-right: 6px;
+    }
+
+    .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+}
+
+.modal-content h3 {
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.modal-fields label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.modal-fields input,
+.modal-fields textarea,
+.modal-fields select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+}
+
+.modal-fields textarea {
+  resize: vertical;
+}
+
+.modal-footer {
+  margin-top: 24px;
+  text-align: right;
+}
+
+.modal-footer button {
+  background-color: #1d4ed8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+  </style>
+</head>
+<body>
+    <div class="container">
+      <!-- Header -->
+      <header class="top-nav">
+        <div class="header-left">
+          <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+          <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+          <div class="search-wrapper">
+            <img src="assets/icon-search.svg" class="icon" alt="Search" />
+            <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+            <select><option>Search by</option></select>
+          </div>
+        </div>
+        <div class="header-right">
+          <img src="assets/icon-inbox.svg" alt="Inbox" />
+          <img src="assets/icon-filter.svg" alt="Tasks" />
+          <img src="assets/icon-help.svg" alt="Help" />
+          <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+          <img src="assets/icon-user.svg" alt="User Add" />
+          <div class="user-profile">
+            <div class="avatar">VA</div>
+            <div class="user-info">
+              <strong>Vivek Agnihotri</strong>
+              <span>Business</span>
+            </div>
+          </div>
+        </div>
+      </header>
+  
+      <!-- Main Layout -->
+      <div class="main-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="client-info">
+            <p>Client Name <strong>J K Singh</strong></p>
+            <p>Group <strong>J K Singh & Company</strong></p>
+          </div>
+          <div class="sidebar-actions">
+            <button>Validations</button>
+            <button>Operations</button>
+          </div>
+          <div class="sidebar-sections">
+              <div class="section orange">
+                <h4>Heading 01</h4>
+                <ul>
+                  <li onclick="navigateTo('general-info.html')">General Information</li>
+                  <li onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+                  <li onclick="navigateTo('associates.html')">Associate details</li>
+                  <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+                  <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+                  <li onclick="navigateTo('address.html')">Address</li>
+                </ul>
+              </div>
+              <div class="section blue">
+                <h4>Heading 02</h4>
+                <ul>
+                  <li onclick="navigateTo('litigation.html')">Litigation</li>
+                  <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+                  <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+                </ul>
+              </div>
+              <div class="section purple">
+                <h4>Heading 03</h4>
+                <ul>
+                  <li onclick="navigateTo('alias.html')">Alias</li>
+                  <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+                  <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+                  <li class="active" onclick="navigateTo('charges-details.html')">Charges Details</li>
+                  <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+                </ul>
+              </div>
+              <div class="section red">
+                <h4>Heading 04</h4>
+                <ul>
+                  <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+                  <li onclick="navigateTo('relationships.html')">Relationships</li>
+                  <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+                </ul>
+              </div>
+        </aside>
+            <div class="main-content">
+              <div class="charges-wrapper">
+                <div class="charges-header">
+                  <h2>Customer Charges</h2>
+                  <div class="add-btn" onclick="openModal()">
+                    <img src="assets/add.svg" alt="Add Icon" /> Add Charges
+                  </div>
+                </div>
+                <div id="chargesContainer"></div>
+              </div>
+            </div>
+          
+            <!-- Modal -->
+            <div class="modal-overlay" id="chargeModal">
+              <div class="modal-content">
+                <h3>Add New Charge</h3>
+                <div class="modal-fields">
+                  <div><label>Holder Name</label><input type="text" id="holderName" /></div>
+                  <div><label>Type</label><input type="text" id="type" /></div>
+                  <div><label>Amount</label><input type="number" id="amount" /></div>
+                  <div><label>Date of Creation</label><input type="date" id="dateCreation" /></div>
+                  <div><label>Date of Modification</label><input type="date" id="dateModification" /></div>
+                  <div><label>Date of Satisfaction</label><input type="date" id="dateSatisfaction" /></div>
+                  <div><label>Assets under Charge</label><textarea id="assets"></textarea></div>
+                  <div><label>Charge ID</label><input type="text" id="chargeId" /></div>
+                  <div><label>Source</label>
+                    <select id="source">
+                      <option value="Manual">Manual</option>
+                      <option value="System">System</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button onclick="saveCharge()">Save</button>
+                </div>
+              </div>
+            </div>
+          
+            <script>
+              let chargeCount = 0;
+          
+              function openModal() {
+                document.getElementById('chargeModal').style.display = 'flex';
+              }
+          
+              function closeModal() {
+                document.getElementById('chargeModal').style.display = 'none';
+                document.querySelectorAll('#chargeModal input, #chargeModal textarea, #chargeModal select').forEach(el => el.value = '');
+              }
+          
+              function saveCharge() {
+                const holder = document.getElementById('holderName').value;
+                const type = document.getElementById('type').value;
+                const amount = document.getElementById('amount').value;
+                const creation = document.getElementById('dateCreation').value;
+                const modification = document.getElementById('dateModification').value;
+                const satisfaction = document.getElementById('dateSatisfaction').value;
+                const assets = document.getElementById('assets').value;
+                const chargeId = document.getElementById('chargeId').value;
+                const source = document.getElementById('source').value;
+          
+                if (!holder || !type || !amount) return alert('Fill required fields');
+          
+                addChargeCard(holder, type, amount, creation, modification, satisfaction, assets, chargeId, source);
+                closeModal();
+              }
+          
+              function addChargeCard(holder, type, amount, creation, modification, satisfaction, assets, chargeId, source) {
+                chargeCount++;
+                const card = document.createElement('div');
+                card.className = 'charge-card';
+                card.innerHTML = `
+                  <h3>Charge ${chargeCount}</h3>
+                  <div class="charge-actions">
+                    <img src="assets/i-edit 1.svg" alt="Edit" onclick="alert('Edit not implemented yet')" />
+                    <img src="assets/delete.svg" alt="Delete" onclick="this.closest('.charge-card').remove()" />
+                  </div>
+                  <div class="charge-fields">
+                    <div><label>Holder Name</label><input type="text" disabled value="${holder}"></div>
+                    <div><label>Type</label><input type="text" disabled value="${type}"></div>
+                    <div><label>Amount</label><input type="number" disabled value="${amount}"></div>
+                    <div><label>Date of Creation</label><input type="date" disabled value="${creation}"></div>
+                    <div><label>Date of Modification</label><input type="date" disabled value="${modification}"></div>
+                    <div><label>Date of Satisfaction</label><input type="date" disabled value="${satisfaction}"></div>
+                    <div><label>Assets under Charge</label><textarea disabled>${assets}</textarea></div>
+                    <div><label>Charge ID</label><input type="text" disabled value="${chargeId}"></div>
+                    <div><label>Source</label><input type="text" disabled value="${source}"></div>
+                  </div>`;
+                document.getElementById('chargesContainer').appendChild(card);
+              }
+          
+              // Load a default card on page load
+              window.onload = function () {
+                addChargeCard(
+                  'ABC Corp',
+                  'Term Loan',
+                  '5000000',
+                  '2024-01-01',
+                  '2024-06-15',
+                  '2025-06-01',
+                  'Plant, Machinery',
+                  'CHG-001',
+                  'Manual'
+                );
+              };
+            </script>
+            <script>
+                function navigateTo(path) {
+                  window.location.href = path;
+                }
+              </script>
+          </body>
+          </html>

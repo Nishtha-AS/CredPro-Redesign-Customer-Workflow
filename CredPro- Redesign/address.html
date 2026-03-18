@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Address</title>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="screen1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .main-layout {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .content {
+      flex: 1;
+      padding-top: 1.5rem;
+    }
+
+    .address-card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      max-width: 95%;
+    }
+
+    .address-header {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.6rem;
+    }
+
+    .add-address-btn {
+      background-color: transparent;
+      color: #2563eb;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      margin-bottom: 0.8rem;
+    }
+
+    .add-address-btn img {
+      width: 18px;
+      height: 18px;
+    }
+
+    .address-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+    }
+
+    .address-table th {
+      text-align: left;
+      padding: 0.4rem 0.5rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .address-table td {
+      padding: 0.3rem 0.5rem;
+      vertical-align: middle;
+    }
+
+    .address-table select,
+    .address-table input[type="text"] {
+      width: 100%;
+      height: 38px;
+      padding: 0 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      box-sizing: border-box;
+    }
+    .sidebar {
+  margin: 1.5rem;
+}
+    .address-table input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #2563eb;
+    }
+
+    .address-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.6rem;
+      height: 38px;
+    }
+
+    .address-actions img {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+
+    .address-actions img:hover {
+      transform: scale(1.1);
+    }
+
+    .address-buttons {
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .address-buttons button {
+      background-color: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 0.55rem 1.5rem;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .address-table td:last-child {
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="top-nav">
+          <div class="header-left">
+            <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+            <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+            <div class="search-wrapper">
+              <img src="assets/icon-search.svg" class="icon" alt="Search" />
+              <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+              <select><option>Search by</option></select>
+            </div>
+          </div>
+          <div class="header-right">
+            <img src="assets/icon-inbox.svg" alt="Inbox" />
+            <img src="assets/icon-filter.svg" alt="Tasks" />
+            <img src="assets/icon-help.svg" alt="Help" />
+            <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+            <img src="assets/icon-user.svg" alt="User Add" />
+            <div class="user-profile">
+              <div class="avatar">VA</div>
+              <div class="user-info">
+                <strong>Vivek Agnihotri</strong>
+                <span>Business</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+    <div class="main-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="client-info">
+          <p>Client Name <strong>J K Singh</strong></p>
+          <p>Group <strong>J K Singh & Company</strong></p>
+        </div>
+        <div class="sidebar-actions">
+          <button>Validations</button>
+          <button>Operations</button>
+        </div>
+        <div class="sidebar-sections">
+          <div class="section orange">
+            <h4>Heading 01</h4>
+            <ul>
+                <li onclick="navigateTo('general-info.html')">General Information</li>
+                <li onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+                <li onclick="navigateTo('associates.html')">Associate details</li>
+                <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+                <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+                <li class="active" onclick="navigateTo('address.html')">Address</li>
+            </ul>
+          </div>
+          <div class="section blue">
+            <h4>Heading 02</h4>
+            <ul>
+              <li onclick="navigateTo('litigation.html')">Litigation</li>
+              <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+              <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+            </ul>
+          </div>
+          <div class="section purple">
+            <h4>Heading 03</h4>
+            <ul>
+              <li onclick="navigateTo('alias.html')">Alias</li>
+              <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+              <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+              <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+              <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+            </ul>
+          </div>
+          <div class="section red">
+            <h4>Heading 04</h4>
+            <ul>
+              <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+              <li onclick="navigateTo('relationships.html')">Relationships</li>
+              <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+            </ul>
+          </div>
+    </aside>
+
+
+      <!-- Content -->
+      <div class="content">
+        <div class="address-card">
+          <div class="address-header">Customer Address</div>
+          <button class="add-address-btn" onclick="addAddressRow()">
+            <img src="assets/add.svg" alt="Add" />
+            Add New Address
+          </button>
+
+          <table class="address-table" id="address-table">
+            <thead>
+                <tr>
+                  <th style="width: 3%;">#</th>
+                  <th style="width: 15%;">Address</th>
+                  <th style="width: 12%;">Landmark</th>
+                  <th style="width: 10%;">City</th>
+                  <th style="width: 10%;">State</th>
+                  <th style="width: 8%;">Pin Code</th>
+                  <th style="width: 10%;">Country</th>
+                  <th style="width: 12%;">Address Type</th>
+                  <th style="width: 10%;">Source</th>
+                  <th style="width: 7%;">Include in CAM</th>
+                  <th style="width: 8%;">Actions</th>
+                </tr>
+              </thead>
+            <tbody id="address-body">
+              <!-- Rows will be added dynamically -->
+            </tbody>
+          </table>
+
+          <div class="address-buttons">
+            <button type="button" onclick="saveAllAddresses()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const countries = ["India", "USA", "UK"];
+    const states = ["Rajasthan", "Maharashtra", "Delhi"];
+    const addressTypes = ["Registered", "Corporate", "Branch"];
+    const sources = ["Self Declared", "KYC Document", "Utility Bill"];
+
+    function createAddressRow(index) {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index}</td>
+        <td><input type="text" placeholder="Enter Address" /></td>
+        <td><input type="text" placeholder="Enter Landmark" /></td>
+        <td><input type="text" placeholder="Enter City" /></td>
+        <td>
+          <select><option value="">--Select--</option>${states.map(s => `<option>${s}</option>`).join('')}</select>
+        </td>
+        <td><input type="text" placeholder="Enter Pin Code" /></td>
+        <td>
+          <select><option value="">--Select--</option>${countries.map(c => `<option>${c}</option>`).join('')}</select>
+        </td>
+        <td>
+          <select><option value="">--Select--</option>${addressTypes.map(t => `<option>${t}</option>`).join('')}</select>
+        </td>
+        <td>
+          <select><option value="">--Select--</option>${sources.map(s => `<option>${s}</option>`).join('')}</select>
+        </td>
+        <td style="text-align: center;">
+          <input type="checkbox" />
+        </td>
+        <td class="address-actions">
+          <img src="assets/save.svg" title="Save" onclick="alert('Address saved!')" />
+          <img src="assets/delete.svg" title="Delete" onclick="deleteRow(this)" />
+        </td>
+      `;
+      return row;
+    }
+
+    function addAddressRow() {
+      const tbody = document.getElementById("address-body");
+      const index = tbody.rows.length + 1;
+      const row = createAddressRow(index);
+      tbody.appendChild(row);
+    }
+
+    function deleteRow(elem) {
+      const row = elem.closest("tr");
+      row.remove();
+    }
+
+    function saveAllAddresses() {
+      alert("All Addresses saved!");
+    }
+
+    function navigateTo(path) {
+      window.location.href = path;
+    }
+
+    window.onload = addAddressRow;
+  </script>
+  <script>
+    function navigateTo(path) {
+      window.location.href = path;
+    }
+  </script>
+</body>
+</html>

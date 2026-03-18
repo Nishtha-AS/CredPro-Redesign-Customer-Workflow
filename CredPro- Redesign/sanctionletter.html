@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanction Letter Generation</title>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="screen1.css" />
+  <style>
+    .split-layout {
+      display: flex;
+      gap: 20px;
+    }
+
+    .doc-card-left {
+      width: 30%;
+      background-color: #f4fdf6;
+      padding: 1.25rem;
+      border-radius: 10px;
+      border: 1px solid #d1e9d1;
+    }
+
+    .doc-card-right {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .doc-details-card {
+      background-color: #ffffff;
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .doc-details-card.editing {
+      box-shadow: 0 0 0 2px #2563eb33;
+    }
+
+    .doc-details-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .separator {
+      border-bottom: 1px solid #e0e0e0;
+      margin: 10px 0 16px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .details-grid.bottom {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 1rem;
+    }
+
+    .readonly-display, .readonly-input {
+      padding-top: 4px;
+      font-weight: 600;
+      color: #1e1e1e;
+      font-size: 14px;
+    }
+
+    .description-block textarea {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .icon-toolbar {
+      display: flex;
+      gap: 12px;
+    }
+
+    .doc-toolbar-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8px;
+    }
+
+    .save-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: #1d4ed8;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+    }
+
+    .save-btn:hover {
+      background: #1e40af;
+    }
+
+    .save-all-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 40px;
+      background: #d1f4f6;
+      padding: 14px 28px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .save-all-btn .save-btn {
+      background-color: #0f766e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="top-nav">
+      <div class="header-left">
+        <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+        <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+        <div class="search-wrapper">
+          <img src="assets/icon-search.svg" class="icon" alt="Search" />
+          <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+          <select>
+            <option>Search by</option>
+          </select>
+        </div>
+      </div>
+      <div class="header-right">
+        <img src="assets/icon-inbox.svg" alt="Inbox" />
+        <img src="assets/icon-filter.svg" alt="Filter" />
+        <img src="assets/icon-help.svg" alt="Help" />
+        <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+        <img src="assets/icon-user.svg" alt="User Add" />
+        <div class="user-profile">
+          <div class="avatar">VA</div>
+          <div class="user-info">
+            <strong>Vivek Agnihotri</strong>
+            <span>Business</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <aside class="sidebar">
+        <div class="client-info">
+          <p>Client Name <strong>J K Singh</strong></p>
+          <p>Group <strong>J K Singh & Company</strong></p>
+        </div>
+        <div class="sidebar-actions">
+          <button>Attachment</button>
+          <button>Operations</button>
+        </div>
+        <div class="sidebar-sections">
+          <div class="section orange">
+            <h4>Section</h4>
+            <ul>
+              <li class="active">Sanction Letter Generation</li>
+              <li>Checklists</li>
+              <li>Common Fields</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <div class="content">
+        <div class="card flex-between">
+          <h3>
+            <img src="assets/chevron-down-circle 1.svg" alt="Tick" style="height:20px;margin-right:8px;">
+            Sanction Letter Generation
+          </h3>
+          <button class="download-btn">
+            <img src="assets/download 2.svg" style="height:14px;margin-right:6px;" />
+            Download Excel
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="info-grid" style="border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+            <div><span class="label">Sanction ID</span><span class="value">BUS-271_2022/6/23</span></div>
+            <div><span class="label">Workflow Name</span><span class="value">APPWF_MEB</span></div>
+            <div><span class="label">Business Unit</span><span class="value">LC/large Corporate</span></div>
+            <div><span class="label">Business Unit RM</span><span class="value">priya rm2</span></div>
+            <div><span class="label">Finalization Date</span><span class="value">23-Jun-2022</span></div>
+            <div><span class="label">Review Date</span><span class="value">23-Jun-2023</span></div>
+            <div><span class="label">Sanction Authority</span><span class="value">ECC</span></div>
+            <div><span class="label">Purpose</span><span class="value"><span class="tag" style="background:#d1f4ff;padding:2px 6px;border-radius:4px;">Fresh</span></span></div>
+            <div>
+              <span class="label">Progress</span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span class="value">66%</span>
+                <div style="background:#eee;height:6px;width:100px;border-radius:4px;overflow:hidden;">
+                  <div style="width:66%;background:#facc15;height:100%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="top-cards split-layout">
+          <div class="card doc-card-left">
+            <div class="doc-header">
+              <h3 class="doc-title">Select Document Id</h3>
+              <button class="btn-add">
+                <img src="assets/c-add 1.svg" alt="Add" />
+                Add Document
+              </button>
+            </div>
+
+            <div class="doc-search-wrapper">
+              <div class="doc-search">
+                <img src="assets/icon-search.svg" class="icon" alt="Search" />
+                <input type="text" placeholder="Search Document Id" />
+              </div>
+              <button class="edit-btn" disabled>
+                <img src="assets/i-edit 1.svg" alt="Edit" />
+                Edit
+              </button>
+            </div>
+
+            <div class="doc-controls">
+              <label><input type="checkbox" checked /> Select All</label>
+            </div>
+
+            <div class="doc-list">
+              <label><input type="checkbox" checked /> <strong>DM-6570</strong> | Sanction Letter</label>
+              <label><input type="checkbox" checked /> <strong>DM-6571</strong> | Loan Agreement</label>
+              <label><input type="checkbox" /> <strong>DM-6572</strong> | Memorandum of deposit of Title...</label>
+              <label><input type="checkbox" /> <strong>DM-6573</strong> | Declaration for property</label>
+              <label><input type="checkbox" /> <strong>DM-6574</strong> | Letter of confirmation</label>
+            </div>
+
+            <div class="doc-pagination">
+              <span>Showing - <strong>1 to 9</strong> / 28</span>
+              <div>
+                <span class="nav">◀ prev</span>
+                <span class="nav active">next ▶</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-card-right" id="document-details-container"></div>
+        </div>
+
+        <div class="save-all-btn">
+          <button class="save-btn">
+            <img src="assets/download 2.svg" style="height:14px;" alt="save"> Save All
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const selectedDocs = [
+      {
+        id: "DM6570",
+        type: "Sanction Letter",
+        level: "Customer",
+        attachmentId: "CTPT-8647",
+        authority: "-",
+        description: "Lorem ipsum dolor sit amet consectetur..."
+      },
+      {
+        id: "DM6571",
+        type: "Loan Agreement",
+        level: "Customer",
+        attachmentId: "CTPT-8647",
+        authority: "-",
+        description: "Lorem ipsum dolor sit amet consectetur..."
+      }
+    ];
+
+    const container = document.getElementById("document-details-container");
+
+    selectedDocs.forEach((doc, i) => {
+      const card = document.createElement("div");
+      card.className = "doc-details-card";
+      card.innerHTML = `
+        <div class="doc-details-header">
+          <h3>Document Details – <strong>${doc.id}</strong></h3>
+          <div class="icon-toolbar">
+            <button class="save-btn" onclick="alert('Saved ${doc.id}')">
+              <img src="assets/download 2.svg" style="height:14px;" alt="save"> Save
+            </button>
+            <img src="assets/view 2.svg" alt="view" />
+            <img src="assets/i-edit 1.svg" alt="edit" onclick="toggleEdit(this)" />
+            <img src="assets/comment-processing 1.svg" alt="comment" />
+          </div>
+        </div>
+        <div class="separator"></div>
+        <div class="details-grid">
+          <div><label>Document Type</label><div class="readonly-input">${doc.type}</div></div>
+          <div><label>Attachment Level</label><div class="readonly-input">${doc.level}</div></div>
+          <div><label>Attachment ID</label><div class="readonly-input">${doc.attachmentId}</div></div>
+          <div><label>Approval Authority</label><div class="readonly-input">${doc.authority}</div></div>
+        </div>
+        <div class="separator"></div>
+        <div class="description-block">
+          <label>Description</label>
+          <div class="readonly-display">${doc.description}</div>
+        </div>
+        <div class="separator"></div>
+        <div class="details-grid bottom">
+          <div><label>Select Critical/Non Critical</label><div class="checkbox-group"><label><input type="checkbox" checked disabled> Critical</label><label><input type="checkbox" disabled> Non-Critical</label></div></div>
+          <div><label>Action Required</label><div class="checkbox-group"><label><input type="checkbox" checked disabled> Lodgement</label><label><input type="checkbox" disabled> Deferment</label><label><input type="checkbox" disabled> Waiver</label><label><input type="checkbox" disabled> Not Required</label></div></div>
+          <div><label>Select Document Status</label><div class="checkbox-group"><label><input type="checkbox" disabled> Clear</label><label><input type="checkbox" disabled> Not Clear</label></div></div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    function toggleEdit(el) {
+      const card = el.closest(".doc-details-card");
+      card.classList.toggle("editing");
+    }
+  </script>
+</body>
+</html>

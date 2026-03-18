@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Defaulter List</title>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="screen1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    .defaulter-fullcard {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px 32px;
+      width: 100%;
+      box-shadow: 0 0 0 1px #f1f5f9 inset;
+    }
+
+    .defaulter-fullcard h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 24px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .defaulter-fullcard label {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      display: block;
+      color: #1e293b;
+    }
+
+    .defaulter-fullcard textarea {
+      width: 100%;
+      height: 160px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      resize: vertical;
+      color: #1e293b;
+    }
+
+    .defaulter-btn-wrapper {
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .defaulter-btn-wrapper button {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .defaulter-btn-wrapper button:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="top-nav">
+      <div class="header-left">
+        <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+        <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+        <div class="search-wrapper">
+          <img src="assets/icon-search.svg" class="icon" alt="Search" />
+          <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+          <select><option>Search by</option></select>
+        </div>
+      </div>
+      <div class="header-right">
+        <img src="assets/icon-inbox.svg" alt="Inbox" />
+        <img src="assets/icon-filter.svg" alt="Tasks" />
+        <img src="assets/icon-help.svg" alt="Help" />
+        <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+        <img src="assets/icon-user.svg" alt="User Add" />
+        <div class="user-profile">
+          <div class="avatar">VA</div>
+          <div class="user-info">
+            <strong>Vivek Agnihotri</strong>
+            <span>Business</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <div class="main-content">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="client-info">
+          <p>Client Name <strong>J K Singh</strong></p>
+          <p>Group <strong>J K Singh & Company</strong></p>
+        </div>
+        <div class="sidebar-actions">
+          <button>Validations</button>
+          <button>Operations</button>
+        </div>
+        <div class="sidebar-sections">
+          <div class="section orange">
+            <h4>Heading 01</h4>
+            <ul>
+              <li onclick="navigateTo('general-info.html')">General Information</li>
+              <li onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+              <li onclick="navigateTo('associates.html')">Associate details</li>
+              <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+              <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+              <li onclick="navigateTo('address.html')">Address</li>
+            </ul>
+          </div>
+          <div class="section blue">
+            <h4>Heading 02</h4>
+            <ul>
+              <li onclick="navigateTo('litigation.html')">Litigation</li>
+              <li class="active" onclick="navigateTo('defaulter.html')">Defaulter</li>
+              <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+            </ul>
+          </div>
+          <div class="section purple">
+            <h4>Heading 03</h4>
+            <ul>
+              <li onclick="navigateTo('alias.html')">Alias</li>
+              <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+              <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+              <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+              <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+            </ul>
+          </div>
+          <div class="section red">
+            <h4>Heading 04</h4>
+            <ul>
+              <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+              <li onclick="navigateTo('relationships.html')">Relationships</li>
+              <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Content Area -->
+      <section class="content">
+        <div class="defaulter-fullcard">
+          <h2>Defaulter List</h2>
+          <label for="comments">Comments</label>
+          <textarea id="comments" placeholder="Enter defaulter comments here..."></textarea>
+          <div class="defaulter-btn-wrapper">
+            <button>Save</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>

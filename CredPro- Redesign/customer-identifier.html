@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Identifier</title>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="screen1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .identifier-card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 1.5rem 2rem 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      max-width: 95%;
+    }
+  
+    .identifier-header {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.6rem;
+    }
+  
+    .add-row-btn {
+      background-color: transparent;
+      color: #2563eb;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      margin-bottom: 0.8rem;
+    }
+  
+    .add-row-btn img {
+      width: 18px;
+      height: 18px;
+    }
+  
+    .identifier-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+    }
+  
+    .identifier-table th {
+      text-align: left;
+      padding: 0.4rem 0.5rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+  
+    .identifier-table td {
+      padding: 0.3rem 0.5rem;
+      vertical-align: middle;
+    }
+  
+    .identifier-table select,
+    .identifier-table input[type="text"],
+    .identifier-table input[type="date"] {
+      width: 100%;
+      height: 38px;
+      padding: 0 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
+  
+    .identifier-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.6rem;
+      padding-top: 2px;
+      height: 38px;
+    }
+  
+    .identifier-actions img {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      vertical-align: middle;
+      transition: transform 0.1s ease;
+    }
+  
+    .identifier-actions img:hover {
+      transform: scale(1.1);
+    }
+  
+    .identifier-table td:last-child {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  
+    .identifier-buttons {
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: flex-start;
+    }
+  
+    .identifier-buttons button {
+      background-color: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 0.55rem 1.5rem;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="top-nav">
+          <div class="header-left">
+            <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+            <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+            <div class="search-wrapper">
+              <img src="assets/icon-search.svg" class="icon" alt="Search" />
+              <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+              <select><option>Search by</option></select>
+            </div>
+          </div>
+          <div class="header-right">
+            <img src="assets/icon-inbox.svg" alt="Inbox" />
+            <img src="assets/icon-filter.svg" alt="Tasks" />
+            <img src="assets/icon-help.svg" alt="Help" />
+            <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+            <img src="assets/icon-user.svg" alt="User Add" />
+            <div class="user-profile">
+              <div class="avatar">VA</div>
+              <div class="user-info">
+                <strong>Vivek Agnihotri</strong>
+                <span>Business</span>
+              </div>
+            </div>
+          </div>
+        </header>
+    
+        <!-- Main Layout -->
+        <div class="main-content">
+          <!-- Sidebar -->
+          <aside class="sidebar">
+            <div class="client-info">
+              <p>Client Name <strong>J K Singh</strong></p>
+              <p>Group <strong>J K Singh & Company</strong></p>
+            </div>
+            <div class="sidebar-actions">
+              <button>Validations</button>
+              <button>Operations</button>
+            </div>
+            <div class="sidebar-sections">
+                <div class="section orange">
+                  <h4>Heading 01</h4>
+                  <ul>
+                    <li onclick="navigateTo('general-info.html')">General Information</li>
+                    <li onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+                    <li onclick="navigateTo('associates.html')">Associate details</li>
+                    <li class="active" onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+                    <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+                    <li onclick="navigateTo('address.html')">Address</li>
+                  </ul>
+                </div>
+                <div class="section blue">
+                  <h4>Heading 02</h4>
+                  <ul>
+                    <li onclick="navigateTo('litigation.html')">Litigation</li>
+                    <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+                    <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+                  </ul>
+                </div>
+                <div class="section purple">
+                  <h4>Heading 03</h4>
+                  <ul>
+                    <li onclick="navigateTo('alias.html')">Alias</li>
+                    <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+                    <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+                    <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+                    <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+                  </ul>
+                </div>
+                <div class="section red">
+                  <h4>Heading 04</h4>
+                  <ul>
+                    <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+                    <li onclick="navigateTo('relationships.html')">Relationships</li>
+                    <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+                  </ul>
+                </div>
+          </aside>
+          <div class="content"> 
+        <div class="identifier-card">
+          <div class="identifier-header">Customer Identifiers</div>
+          <button class="add-row-btn" onclick="addIdentifierRow()">
+            <img src="assets/add.svg" alt="Add" />
+            Add New Identifier
+          </button>
+
+          <table class="identifier-table" id="identifier-table">
+            <thead>
+              <tr>
+                <th style="width: 5%;">#</th>
+                <th style="width: 30%;">Identifier Type</th>
+                <th style="width: 35%;">Identifier</th>
+                <th style="width: 20%;">Expiry Date</th>
+                <th style="width: 10%;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="identifier-body">
+              <!-- Rows will be appended here -->
+            </tbody>
+          </table>
+
+          <div class="identifier-buttons">
+            <button type="button" onclick="saveIdentifiers()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+    let rowIndex = 1;
+    const identifierTypes = ["Aadhaar", "PAN", "Passport", "Voter ID", "Driving License"];
+
+    function createRow(index) {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index}</td>
+        <td>
+          <select required>
+            <option value="">--Select--</option>
+            ${identifierTypes.map(type => `<option>${type}</option>`).join('')}
+          </select>
+        </td>
+        <td><input type="text" placeholder="Enter Identifier" required /></td>
+        <td><input type="date" /></td>
+        <td class="identifier-actions">
+          <img src="assets/save.svg" title="Save" onclick="saveRow(this)" />
+          <img src="assets/delete.svg" title="Delete" onclick="deleteRow(this)" />
+        </td>
+      `;
+      return row;
+    }
+
+    function addIdentifierRow() {
+      const tableBody = document.getElementById("identifier-body");
+      const row = createRow(rowIndex++);
+      tableBody.appendChild(row);
+    }
+
+    function deleteRow(elem) {
+      const row = elem.closest("tr");
+      row.remove();
+      rowIndex--;
+    }
+
+    function saveRow(elem) {
+      alert("Identifier saved!");
+    }
+
+    function saveIdentifiers() {
+      alert("All Identifiers saved!");
+    }
+
+    window.onload = addIdentifierRow;
+  </script>
+  <script>
+    function navigateTo(path) {
+      window.location.href = path;
+    }
+  </script>
+</body>
+</html>

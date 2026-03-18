@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>External Rights</title>
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="screen1.css">
+  <style>
+    .main-layout {
+      display: flex;
+      align-items: flex-start;
+      margin: 15px;
+    }
+
+    .main-content {
+      flex: 1;
+      background-color: #f1f5f9;
+    }
+
+    .external-rights-container {
+      background-color: #f1f5f9;
+      min-height: 100vh;
+    }
+
+    .external-rights-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      width: 100%;
+    }
+
+    .external-rights-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .external-rights-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .external-rights-table th {
+      background: #e5e7eb;
+      text-align: left;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+      border-bottom: 1px solid #d1d5db;
+    }
+
+    .external-rights-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .external-rights-table input,
+    .external-rights-table select {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background-color: #fff;
+    }
+
+    .external-rights-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .external-rights-actions img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .external-rights-save {
+      margin-top: 24px;
+      padding: 12px;
+      width: 200px;
+      background-color: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .external-rights-save:hover {
+      background-color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="top-nav">
+        <div class="header-left">
+          <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+          <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+          <div class="search-wrapper">
+            <img src="assets/icon-search.svg" class="icon" alt="Search" />
+            <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+            <select><option>Search by</option></select>
+          </div>
+        </div>
+        <div class="header-right">
+          <img src="assets/icon-inbox.svg" alt="Inbox" />
+          <img src="assets/icon-filter.svg" alt="Tasks" />
+          <img src="assets/icon-help.svg" alt="Help" />
+          <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+          <img src="assets/icon-user.svg" alt="User Add" />
+          <div class="user-profile">
+            <div class="avatar">VA</div>
+            <div class="user-info">
+              <strong>Vivek Agnihotri</strong>
+              <span>Business</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <div class="main-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="client-info">
+          <p>Client Name <strong>J K Singh</strong></p>
+          <p>Group <strong>J K Singh & Company</strong></p>
+        </div>
+        <div class="sidebar-actions">
+          <button>Validations</button>
+          <button>Operations</button>
+        </div>
+        <div class="sidebar-sections">
+          <div class="section orange">
+            <h4>Heading 01</h4>
+            <ul>
+              <li onclick="navigateTo('general-info.html')">General Information</li>
+              <li onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+              <li onclick="navigateTo('associates.html')">Associate details</li>
+              <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+              <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+              <li onclick="navigateTo('address.html')">Address</li>
+            </ul>
+          </div>
+          <div class="section blue">
+            <h4>Heading 02</h4>
+            <ul>
+              <li onclick="navigateTo('litigation.html')">Litigation</li>
+              <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+              <li class="active" onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+            </ul>
+          </div>
+          <div class="section purple">
+            <h4>Heading 03</h4>
+            <ul>
+              <li onclick="navigateTo('alias.html')">Alias</li>
+              <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+              <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+              <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+              <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+            </ul>
+          </div>
+          <div class="section red">
+            <h4>Heading 04</h4>
+            <ul>
+              <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+              <li onclick="navigateTo('relationships.html')">Relationships</li>
+              <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="external-rights-container">
+          <div class="external-rights-card">
+            <div class="external-rights-title">External Rights</div>
+            <table class="external-rights-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Authority</th>
+                  <th>Reference No</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="rights-body">
+                <tr>
+                  <td>
+                    <select>
+                      <option>--Select--</option>
+                      <option>Hypothecation</option>
+                      <option>Charge</option>
+                    </select>
+                  </td>
+                  <td><input type="text" placeholder="Enter Description" /></td>
+                  <td><input type="text" placeholder="Enter Authority" /></td>
+                  <td><input type="text" placeholder="Reference No" /></td>
+                  <td><input type="date" /></td>
+                  <td><input type="text" placeholder="₹" /></td>
+                  <td class="external-rights-actions">
+                    <img src="assets/add.svg" onclick="addRow()" title="Add Row" />
+                    <img src="assets/save.svg" onclick="deleteRow(this)" title="Delete Row" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="external-rights-save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addRow() {
+      const tableBody = document.getElementById("rights-body");
+      const newRow = tableBody.rows[0].cloneNode(true);
+
+      Array.from(newRow.querySelectorAll("input, select")).forEach((el) => {
+        el.value = "";
+      });
+
+      tableBody.appendChild(newRow);
+    }
+
+    function deleteRow(el) {
+      const row = el.closest("tr");
+      const tableBody = document.getElementById("rights-body");
+      if (tableBody.rows.length > 1) {
+        row.remove();
+      }
+    }
+
+    function navigateTo(url) {
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>

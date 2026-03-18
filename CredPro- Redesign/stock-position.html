@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stock Position and Number of Employees</title>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="screen1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    .main-content {
+        display: flex;
+        width: 100%;
+    }
+
+    .content {
+      flex: 1;
+      padding: 1.5rem 2rem;
+    }
+  
+    .spne-container {
+      flex: 1;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 1.5rem 2rem 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      flex-grow: 1;
+      max-width: 100%;
+      min-width: 0;   
+    }
+  
+    .spne-header {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+  
+    .form-group {
+      margin-bottom: 1rem;
+    }
+  
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+      color: #1e293b;
+    }
+  
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: #f9fafb;
+      box-sizing: border-box;
+    }
+  
+    .inventory-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .inventory-row .form-group {
+      flex: 1;
+    }
+  
+    .inventory-row .actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding-top: 1.75rem;
+    }
+  
+    .inventory-row .actions img {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+  
+    .inventory-row .actions img:hover {
+      transform: scale(1.1);
+    }
+  
+    .add-button {
+      background: none;
+      border: none;
+      color: #2563eb;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  
+    .spne-save-btn {
+      background-color: #2563eb;
+      color: #fff;
+      font-weight: 500;
+      padding: 0.55rem 1.5rem;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  
+    .spne-save-btn:hover {
+      background-color: #1d4ed8;
+    }
+  
+    .required-dot {
+      color: red;
+      font-size: 1rem;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+  
+    /* Responsive fix to remove empty right space */
+    @media screen and (max-width: 1440px) {
+      .spne-container {
+        margin-right: 1rem;
+      }
+    }
+  
+    @media screen and (max-width: 768px) {
+      .inventory-row {
+        flex-direction: column;
+      }
+      .inventory-row .actions {
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="top-nav">
+          <div class="header-left">
+            <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+            <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+            <div class="search-wrapper">
+              <img src="assets/icon-search.svg" class="icon" alt="Search" />
+              <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+              <select><option>Search by</option></select>
+            </div>
+          </div>
+          <div class="header-right">
+            <img src="assets/icon-inbox.svg" alt="Inbox" />
+            <img src="assets/icon-filter.svg" alt="Tasks" />
+            <img src="assets/icon-help.svg" alt="Help" />
+            <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+            <img src="assets/icon-user.svg" alt="User Add" />
+            <div class="user-profile">
+              <div class="avatar">VA</div>
+              <div class="user-info">
+                <strong>Vivek Agnihotri</strong>
+                <span>Business</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+    <!-- Main Layout -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="client-info">
+            <p>Client Name <strong>J K Singh</strong></p>
+            <p>Group <strong>J K Singh & Company</strong></p>
+          </div>
+          <div class="sidebar-actions">
+            <button>Validations</button>
+            <button>Operations</button>
+          </div>
+          <div class="sidebar-sections">
+              <div class="section orange">
+                <h4>Heading 01</h4>
+                <ul>
+                  <li onclick="navigateTo('general-info.html')">General Information</li>
+                  <li onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+                  <li onclick="navigateTo('associates.html')">Associate details</li>
+                  <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+                  <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+                  <li onclick="navigateTo('address.html')">Address</li>
+                </ul>
+              </div>
+              <div class="section blue">
+                <h4>Heading 02</h4>
+                <ul>
+                  <li onclick="navigateTo('litigation.html')">Litigation</li>
+                  <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+                  <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+                </ul>
+              </div>
+              <div class="section purple">
+                <h4>Heading 03</h4>
+                <ul>
+                  <li onclick="navigateTo('alias.html')">Alias</li>
+                  <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+                  <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+                  <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+                  <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+                </ul>
+              </div>
+              <div class="section red">
+                <h4>Heading 04</h4>
+                <ul>
+                  <li class="active" onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+                  <li onclick="navigateTo('relationships.html')">Relationships</li>
+                  <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+                </ul>
+              </div>
+        </aside>
+            <div class="spne-container">
+              <div class="spne-header">Stock Position And Number of Employees</div>
+        
+              <div class="form-group">
+                <label>Total Number of Employees <span class="required-dot">*</span></label>
+                <input type="number" placeholder="Enter count" />
+              </div>
+
+              <button class="add-button" onclick="addInventoryRow()">
+                <img src="assets/add.svg" alt="Add" />
+                Add Stock Position
+              </button>
+        
+              <div id="inventory-container">
+                <!-- Inventory rows will be added here -->
+              </div>
+        
+              <button class="spne-save-btn">Save</button>
+            </div>
+          </div>
+        
+          <script>
+            function addInventoryRow() {
+              const container = document.getElementById("inventory-container");
+        
+              const row = document.createElement("div");
+              row.className = "inventory-row";
+        
+              row.innerHTML = `
+                <div class="form-group">
+                  <label>Place of Inventory</label>
+                  <select>
+                    <option>--Select--</option>
+                    <option>Factory</option>
+                    <option>Warehouse</option>
+                    <option>Retail Outlet</option>
+                  </select>
+                </div>
+        
+                <div class="form-group">
+                  <label>Type of Inventory</label>
+                  <select>
+                    <option>--Select--</option>
+                    <option>Raw Material</option>
+                    <option>Finished Goods</option>
+                    <option>WIP</option>
+                  </select>
+                </div>
+        
+                <div class="form-group">
+                  <label>Average Inventory Amt (in lakhs)</label>
+                  <input type="number" placeholder="0.00" step="0.01" />
+                </div>
+        
+                <div class="actions">
+                  <img src="assets/save.svg" alt="Save" title="Save" />
+                  <img src="assets/delete.svg" alt="Delete" title="Delete" onclick="removeRow(this)" />
+                </div>
+              `;
+        
+              container.appendChild(row);
+            }
+        
+            function removeRow(el) {
+              const row = el.closest(".inventory-row");
+              row.remove();
+            }
+        
+            // Add initial row on page load
+            window.onload = addInventoryRow;
+          </script>
+          <script>
+            function navigateTo(path) {
+              window.location.href = path;
+            }
+          </script>
+        </body>
+        </html>

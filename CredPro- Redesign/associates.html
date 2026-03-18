@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Associate Details</title>
+  <link rel="stylesheet" href="screen1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Scoped CSS Fixes for Associate Details */
+    .main-content {
+  display: flex;
+  margin-left: 0; /* remove hard left push if any */
+}
+
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: #f3f4f6;
+}
+    .tab-container {
+      margin-bottom: 1.5rem;
+    }
+    .tab {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1e3a8a;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #1e3a8a;
+    }
+    .tab .sub-text {
+      font-weight: 400;
+      font-size: 14px;
+      color: #6b7280;
+      margin-left: 0.5rem;
+    }
+    .credpro-associates-block {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+    }
+    .credpro-associates-table {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .credpro-associates-table label {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .credpro-associates-table .value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+    }
+    .associate-card {
+      background: #e6fffa;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 0 1px #d1fae5;
+    }
+    .associate-header {
+      background: #ccfbf1;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 16px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: #374151;
+    }
+    .form-group input,
+    .form-group select {
+      font-size: 14px;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+    .btn-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 1.5rem;
+    }
+    .edit-btn {
+      background: #f9fafb;
+      color: #111827;
+      border: 1px solid #d1d5db;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .delete-btn {
+      background: #fee2e2;
+      color: #b91c1c;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .add-new-associate-panel {
+      background: #fff7ed;
+      border: 1px dashed #fbbf24;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+    .add-new-associate-panel button {
+      background: #1d4ed8;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 500;
+      margin-top: 0.75rem;
+      cursor: pointer;
+    }
+    .delete-confirm-modal {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #fee2e2;
+      color: #991b1b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: none;
+      max-width: 300px;
+    }
+    .delete-confirm-modal button {
+      background: #dc2626;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="top-nav">
+      <div class="header-left">
+        <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+        <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+        <div class="search-wrapper">
+          <img src="assets/icon-search.svg" class="icon" alt="Search" />
+          <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+          <select><option>Search by</option></select>
+        </div>
+      </div>
+      <div class="header-right">
+        <img src="assets/icon-inbox.svg" alt="Inbox" />
+        <img src="assets/icon-filter.svg" alt="Tasks" />
+        <img src="assets/icon-help.svg" alt="Help" />
+        <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+        <img src="assets/icon-user.svg" alt="User Add" />
+        <div class="user-profile">
+          <div class="avatar">VA</div>
+          <div class="user-info">
+            <strong>Vivek Agnihotri</strong>
+            <span>Business</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-content">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="client-info">
+          <p>Client Name <strong>J K Singh</strong></p>
+          <p>Group <strong>J K Singh & Company</strong></p>
+        </div>
+        <div class="sidebar-actions">
+          <button>Validations</button>
+          <button>Operations</button>
+        </div>
+        <div class="sidebar-sections">
+            <div class="section orange">
+              <h4>Heading 01</h4>
+              <ul>
+                <li onclick="navigateTo('general-info.html')">General Information</li>
+                <li onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+                <li class="active" onclick="navigateTo('associates.html')">Associate details</li>
+                <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+                <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+                <li onclick="navigateTo('address.html')">Address</li>
+              </ul>
+            </div>
+            <div class="section blue">
+                <h4>Heading 02</h4>
+                <ul>
+                  <li onclick="navigateTo('litigation.html')">Litigation</li>
+                  <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+                  <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+                </ul>
+              </div>
+              <div class="section purple">
+                <h4>Heading 03</h4>
+                <ul>
+                  <li onclick="navigateTo('alias.html')">Alias</li>
+                  <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+                  <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+                  <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+                  <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+                </ul>
+              </div>
+              <div class="section red">
+                <h4>Heading 04</h4>
+                <ul>
+                  <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+                  <li onclick="navigateTo('relationships.html')">Relationships</li>
+                  <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+                </ul>
+              </div>
+      </aside>
+
+           <main class="content">
+            <div class="tab-container">
+              <div class="tab">Associate Details <span class="sub-text">All amount are in lakhs</span></div>
+            </div>
+      
+            <div class="credpro-associates-block">
+              <div class="credpro-associates-table">
+                <div>
+                  <label>Name</label>
+                  <div class="value">Not Applicable</div>
+                </div>
+                <div>
+                  <label>PAN</label>
+                  <div class="value">Not Applicable</div>
+                </div>
+                <div>
+                  <label>CIF</label>
+                  <div class="value">Not Applicable</div>
+                </div>
+                <div>
+                  <label>Nationality</label>
+                  <div class="value">Not Applicable</div>
+                </div>
+                <div>
+                  <label>Co-Borrower</label>
+                  <div class="value">Not Applicable</div>
+                </div>
+                <div>
+                  <label>Activity</label>
+                  <div class="value">Not Applicable</div>
+                </div>
+                <div>
+                  <label>Sales</label>
+                  <div class="value">Not Applicable</div>
+                </div>
+                <div>
+                  <label>EBITDA</label>
+                  <div class="value">--</div>
+                </div>
+                <div>
+                  <label>Total Debt</label>
+                  <div class="value">--</div>
+                </div>
+                <div>
+                  <label>ATNW</label>
+                  <div class="value">--</div>
+                </div>
+                <div>
+                  <label>Borrowing with Bank</label>
+                  <div class="value">--</div>
+                </div>
+                <div>
+                  <label>Promoters</label>
+                  <div class="value">--</div>
+                </div>
+                <div>
+                  <label>Financial Year</label>
+                  <div class="value">--</div>
+                </div>
+              </div>
+            </div>
+  
+    
+            <div class="associate-card">
+                <div class="associate-header">Associates 1</div>
+              <div class="form-grid">
+                <div class="form-group"><label>Group</label><input type="text" /></div>
+                <div class="form-group"><label>PAN</label><input type="text" /></div>
+                <div class="form-group"><label>Type of Entity</label><input type="text" /></div>
+                <div class="form-group"><label>Activity</label><input type="text" /></div>
+                <div class="form-group"><label>First Name*</label><input type="text" /></div>
+                <div class="form-group"><label>Middle Name</label><input type="text" /></div>
+                <div class="form-group"><label>Last Name*</label><input type="text" /></div>
+                <div class="form-group"><label>Father Full Name*</label><input type="text" /></div>
+                <div class="form-group"><label>Applicant Type</label><input type="text" /></div>
+                <div class="form-group"><label>CIN no</label><input type="text" /></div>
+                <div class="form-group"><label>CIF no</label><input type="text" /></div>
+                <div class="form-group"><label>Country</label><select><option>India</option></select></div>
+                <div class="form-group"><label>State</label><select><option>Maharashtra</option></select></div>
+                <div class="form-group"><label>Address</label><input type="text" /></div>
+                <div class="form-group"><label>City</label><select><option>Kolhapur</option></select></div>
+                <div class="form-group"><label>Pincode</label><input type="text" /></div>
+                <div class="form-group"><label>Co-Borrower</label><div class="radio-group"><label><input type="radio" name="cob${associateCount}" /> Yes</label><label><input type="radio" name="cob${associateCount}" checked /> No</label></div></div>
+                <div class="form-group"><label>Registration Date</label><input type="date" /></div>
+                <div class="form-group"><label>Status</label><input type="text" /></div>
+                <div class="form-group"><label>Total Debt</label><input type="text" /></div>
+                <div class="form-group"><label>Borrowing with Bank</label><input type="text" /></div>
+                <div class="form-group"><label>Name of Promoters</label><input type="text" /></div>
+                <div class="form-group"><label>BT/TA</label><input type="text" /></div>
+                <div class="form-group"><label>ATNW</label><input type="text" /></div>
+                <div class="form-group"><label>Financial Year</label><input type="text" /></div>
+              </div>
+              <div id="associates-container"></div>
+    
+              <div class="btn-row">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn" onclick="showDeleteModal()">Delete</button>
+              </div>
+            </div>
+      
+            <div class="add-new-associate-panel">
+              <strong>Add New Associate</strong>
+              <p>Add details for additional associated entities.</p>
+              <button onclick="addNewAssociate()">Add New Associate</button>
+            </div>
+      
+            <div class="delete-confirm-modal" id="deleteModal">
+              <p><strong>Delete!</strong><br/>Are you sure you want to delete this Associate?<br/>Deleting associate from the directory cannot be undone.</p>
+              <button onclick="confirmDelete()">Confirm</button>
+            </div>
+          </main>
+        </div>
+    
+      <script>
+        let associateCount = 0;
+    
+        function addNewAssociate() {
+          associateCount++;
+          const container = document.getElementById('associates-container');
+          const wrapper = document.createElement('div');
+          wrapper.className = 'associate-entry';
+          wrapper.innerHTML = `
+            <h4>Associates ${associateCount}</h4>
+            <div class="form-grid">
+              <div class="form-group"><label>Group</label><input type="text" /></div>
+              <div class="form-group"><label>PAN</label><input type="text" /></div>
+              <div class="form-group"><label>Type of Entity</label><input type="text" /></div>
+              <div class="form-group"><label>Activity</label><input type="text" /></div>
+              <div class="form-group"><label>First Name*</label><input type="text" /></div>
+              <div class="form-group"><label>Middle Name</label><input type="text" /></div>
+              <div class="form-group"><label>Last Name*</label><input type="text" /></div>
+              <div class="form-group"><label>Father Full Name*</label><input type="text" /></div>
+              <div class="form-group"><label>Applicant Type</label><input type="text" /></div>
+              <div class="form-group"><label>CIN no</label><input type="text" /></div>
+              <div class="form-group"><label>CIF no</label><input type="text" /></div>
+              <div class="form-group"><label>Country</label><select><option>India</option></select></div>
+              <div class="form-group"><label>State</label><select><option>Maharashtra</option></select></div>
+              <div class="form-group"><label>Address</label><input type="text" /></div>
+              <div class="form-group"><label>City</label><select><option>Kolhapur</option></select></div>
+              <div class="form-group"><label>Pincode</label><input type="text" /></div>
+              <div class="form-group"><label>Co-Borrower</label><div class="radio-group"><label><input type="radio" name="cob${associateCount}" /> Yes</label><label><input type="radio" name="cob${associateCount}" checked /> No</label></div></div>
+              <div class="form-group"><label>Registration Date</label><input type="date" /></div>
+              <div class="form-group"><label>Status</label><input type="text" /></div>
+              <div class="form-group"><label>Total Debt</label><input type="text" /></div>
+              <div class="form-group"><label>Borrowing with Bank</label><input type="text" /></div>
+              <div class="form-group"><label>Name of Promoters</label><input type="text" /></div>
+              <div class="form-group"><label>BT/TA</label><input type="text" /></div>
+              <div class="form-group"><label>ATNW</label><input type="text" /></div>
+              <div class="form-group"><label>Financial Year</label><input type="text" /></div>
+            </div>
+            <div class="btn-row">
+              <button class="edit-btn" onclick="editAssociate(this)">Edit</button>
+              <button class="delete-btn" onclick="deleteAssociate(this)">Delete</button>
+            </div>
+          `;
+          container.appendChild(wrapper);
+        }
+    
+        function deleteAssociate(btn) {
+          const confirmed = confirm("Are you sure you want to delete this Associate?");
+          if (confirmed) {
+            const entry = btn.closest('.associate-entry');
+            entry.remove();
+          }
+        }
+    
+        function editAssociate(btn) {
+          alert("Editing not implemented.");
+        }
+      </script>
+      <script>
+        function navigateTo(path) {
+          window.location.href = path;
+        }
+      </script>
+    </body>
+    </html>

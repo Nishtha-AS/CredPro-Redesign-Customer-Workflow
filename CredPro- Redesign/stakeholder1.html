@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stakeholder Details</title>
+  <link rel="stylesheet" href="screen1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<style>
+  .stakeholder-header {
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.2rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.06);
+}
+
+.stakeholder-header .left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stakeholder-header .check-icon {
+  background-color: #22c55e; /* Green */
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 11px;
+  border-radius: 50%;
+  font-size: 13px;
+}
+
+.stakeholder-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #1f2c83;
+  font-weight: 700;
+}
+
+.stakeholder-header .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-new-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  border: 2px dashed #1f2c83;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-stakeholder-link {
+  text-decoration: none;
+  color: #1f2c83;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.add-stakeholder-link img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+}
+
+.add-new-card:hover {
+  background-color: #e2e8f0;
+}
+
+</style>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="top-nav">
+      <div class="header-left">
+        <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+        <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+        <div class="search-wrapper">
+          <img src="assets/icon-search.svg" class="icon" alt="Search" />
+          <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+          <select>
+            <option>Search by</option>
+          </select>
+        </div>
+      </div>
+      <div class="header-right">
+        <img src="assets/icon-inbox.svg" alt="Inbox" />
+        <img src="assets/icon-filter.svg" alt="tasks" />
+        <img src="assets/icon-help.svg" alt="Help" />
+        <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+        <img src="assets/icon-user.svg" alt="User Add" />
+        <div class="user-profile">
+          <div class="avatar">VA</div>
+          <div class="user-info">
+            <strong>Vivek Agnihotri</strong>
+            <span>Business</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+
+    <!-- Main Layout -->
+    <div class="main-content">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="client-info">
+          <p>Client Name <strong>J K Singh</strong></p>
+          <p>Group <strong>J K Singh & Company</strong></p>
+        </div>
+        <div class="sidebar-actions">
+          <button>Validations</button>
+          <button>Operations</button>
+        </div>
+        <div class="sidebar-sections">
+          <div class="section orange">
+            <h4>Heading 01</h4>
+            <ul>
+              <li onclick="navigateTo('general-info.html')">General Information</li>
+              <li class="active" onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+              <li onclick="navigateTo('associates.html')">Associate details</li>
+              <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+              <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+              <li onclick="navigateTo('address.html')">Address</li>
+            </ul>
+          </div>
+          <div class="section blue">
+            <h4>Heading 02</h4>
+            <ul>
+              <li onclick="navigateTo('litigation.html')">Litigation</li>
+              <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+              <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+            </ul>
+          </div>
+          <div class="section purple">
+            <h4>Heading 03</h4>
+            <ul>
+              <li onclick="navigateTo('alias.html')">Alias</li>
+              <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+              <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+              <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+              <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+            </ul>
+          </div>
+          <div class="section red">
+            <h4>Heading 04</h4>
+            <ul>
+              <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+              <li onclick="navigateTo('relationships.html')">Relationships</li>
+              <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+            </ul>
+          </div>
+      </aside>
+
+      <!-- Content -->
+      <main class="content">
+        <!-- Top Cards -->
+        <div class="top-cards">
+          <div class="card light-blue">
+            <h3>General Information</h3>
+            <label>Customer Rated In</label>
+            <input type="text" value="Rated in CredPro" />
+            <label>Primary Alias / RAM ID</label>
+            <input type="text" value="CTPT-6936" />
+            <label>CredPro ID</label>
+            <input type="text" value="CTPT-6936" />
+          </div>
+          <div class="card light-green">
+            <h3>Legal Details</h3>
+            <div class="legal-grid">
+              <div class="form-group"><label>Name*</label><input type="text" value="ABCD AgriEnterprises" /></div>
+              <div class="form-group"><label>Legal Name*</label><input type="text" value="ABCD" /></div>
+              <div class="form-group"><label>Parent CredPro Name</label><input type="text" value="Tata Group" /></div>
+              <div class="form-group"><label>Status</label><select><option>Active</option></select></div>
+              <div class="form-group"><label>Legal Constitution</label><select><option>Sole Proprietory</option></select></div>
+              <div class="form-group"><label>Business Unit</label><select><option>Agri and SME</option></select></div>
+            </div>
+            <p class="form-note">Kindly update the details mentioned on PAN Card of the holder.</p>
+          </div>
+        </div>
+
+<!-- Stakeholder Section Header -->
+<div class="stakeholder-header">
+  <div class="left">
+    <span class="check-icon">✔</span>
+    <h3>Stakeholder Details / Board of Directors</h3>
+  </div>
+  <div class="right">
+    <button class="download-btn">
+      <img src="assets/download 2.svg" alt="Download" />
+      Download Data
+    </button>
+  </div>
+</div>
+
+  <div class="stakeholder-grid">
+
+    <!-- Card 1 -->
+    <div class="stakeholder-card" onclick="populatePanel('Abhishek Bhatacharya')">
+      <div class="card-header">
+        <span>Details - <strong>Abhishek Bhatacharya</strong></span>
+        <button class="view-btn" onclick="openPanel(event)">
+          <img src="assets/icon-eye.svg" alt="View" /> View
+        </button>
+      </div>
+      <div class="info-grid">
+        <div><span class="label">Type</span><span class="value">Proprietor</span></div>
+        <div><span class="label">PAN</span><span class="value">Invalid Request</span></div>
+        <div><span class="label">DOB</span><span class="value">30th Dec 2018</span></div>
+        <div><span class="label">Qualification</span><span class="value">MBA Finance</span></div>
+        <div><span class="label">Source</span><span class="value">Manual</span></div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="stakeholder-card" onclick="populatePanel('Varun Tomar')">
+      <div class="card-header">
+        <span>Details - <strong>Varun Tomar</strong></span>
+        <button class="view-btn" onclick="openPanel(event)">
+          <img src="assets/icon-eye.svg" alt="View" /> View
+        </button>
+      </div>
+      <div class="info-grid">
+        <div><span class="label">Type</span><span class="value">Partner</span></div>
+        <div><span class="label">PAN</span><span class="value">Invalid Request</span></div>
+        <div><span class="label">DOB</span><span class="value">12th Aug 2004</span></div>
+        <div><span class="label">Qualification</span><span class="value">Graduate</span></div>
+        <div><span class="label">Source</span><span class="value">Manual</span></div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="stakeholder-card" onclick="populatePanel('Disha Makhija')">
+      <div class="card-header">
+        <span>Details - <strong>Disha Makhija</strong></span>
+        <button class="view-btn" onclick="openPanel(event)">
+          <img src="assets/icon-eye.svg" alt="View" /> View
+        </button>
+      </div>
+      <div class="info-grid">
+        <div><span class="label">Type</span><span class="value">Member</span></div>
+        <div><span class="label">PAN</span><span class="value">Invalid Request</span></div>
+        <div><span class="label">DOB</span><span class="value">12th Apr 2006</span></div>
+        <div><span class="label">Qualification</span><span class="value">Scholarship</span></div>
+        <div><span class="label">Source</span><span class="value">Manual</span></div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="stakeholder-card" onclick="populatePanel('Debolina Chatterjee')">
+      <div class="card-header">
+        <span>Details - <strong>Debolina Chatterjee</strong></span>
+        <button class="view-btn" onclick="openPanel(event)">
+          <img src="assets/icon-eye.svg" alt="View" /> View
+        </button>
+      </div>
+      <div class="info-grid">
+        <div><span class="label">Type</span><span class="value">Partner</span></div>
+        <div><span class="label">PAN</span><span class="value">Invalid Request</span></div>
+        <div><span class="label">DOB</span><span class="value">30th Dec 2018</span></div>
+        <div><span class="label">Qualification</span><span class="value">PHD</span></div>
+        <div><span class="label">Source</span><span class="value">Manual</span></div>
+      </div>
+    </div>
+    <!-- Add New Stakeholder Button -->
+  <div class="stakeholder-card add-new-card">
+    <a href="stakeholder2.html" class="add-stakeholder-link">
+      <img src="assets/c-add 1.svg" alt="Add" />
+      <span>Add New Stakeholder</span>
+    </a>
+  </div>
+
+  </div>
+</div>
+
+    <!-- Side Panel -->
+    <div class="right-panel" id="panel">
+      <div class="panel-header">
+        <span class="panel-title">Stakeholder Details/Board of Directors</span>
+        <button class="close-btn" onclick="closePanel()">&times;</button>
+      </div>
+      <div class="panel-content">
+        <div class="profile-block">
+          <div class="initial">AB</div>
+          <div>
+            <label class="label-head">Stakeholder Name</label>
+            <p class="name" id="stakeholder-name">Abhishek Bhatacharya</p>
+          </div>
+        </div>
+        <div class="panel-grid">
+          <div class="panel-group"><label>Stakeholder Type</label><input type="text" value="Partner" disabled /></div>
+          <div class="panel-group"><label>DIN*</label><input type="text" value="Not Applicable" disabled /></div>
+          <div class="panel-group"><label>On board of any other bank</label><input type="text" value="Not Applicable" disabled /></div>
+          <div class="panel-group"><label>CIBIL Score</label><input type="text" value="Not Applicable" disabled /></div>
+          <div class="panel-group"><label>PAN</label><input type="text" value="Not Applicable" disabled /></div>
+          <div class="panel-group"><label>Date Of Birth</label><input type="text" value="29th Feb 1998" disabled /></div>
+          <div class="panel-group"><label>Appointment Date</label><input type="text" value="Not Applicable" disabled /></div>
+          <div class="panel-group"><label>Qualification</label><input type="text" value="Graduate" disabled /></div>
+          <div class="panel-group"><label>Source</label><input type="text" value="Manual" disabled /></div>
+        </div>
+        <div class="panel-footer" id="footerDefault">
+          <button class="edit-btn" onclick="enableEdit()">Edit</button>
+          <button class="delete-btn" onclick="showConfirmDelete()">Delete</button>
+        </div>
+        <div class="panel-footer hidden" id="footerEdit">
+          <button class="save-btn" onclick="saveStakeholder()">💾 Save</button>
+        </div>
+        <div class="confirm-delete hidden" id="deleteConfirm">
+          <div class="confirm-box">
+            <strong>🗑 Delete!</strong>
+            <p>Are you sure you want to delete this stakeholder?<br />This action cannot be undone.</p>
+            <button class="confirm-btn" onclick="confirmDelete()">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPanel(e) {
+      e.stopPropagation();
+      document.getElementById('panel').classList.add('active');
+    }
+    function closePanel() {
+      document.getElementById('panel').classList.remove('active');
+      disableEdit();
+    }
+    function enableEdit() {
+      document.querySelectorAll('.panel-group input').forEach(input => input.disabled = false);
+      document.getElementById('footerDefault').classList.add('hidden');
+      document.getElementById('footerEdit').classList.remove('hidden');
+    }
+    function disableEdit() {
+      document.querySelectorAll('.panel-group input').forEach(input => input.disabled = true);
+      document.getElementById('footerEdit').classList.add('hidden');
+      document.getElementById('footerDefault').classList.remove('hidden');
+      document.getElementById('deleteConfirm').classList.add('hidden');
+    }
+    function showConfirmDelete() {
+      document.getElementById('deleteConfirm').classList.remove('hidden');
+    }
+    function confirmDelete() {
+      alert('Stakeholder deleted successfully!');
+      closePanel();
+    }
+    function saveStakeholder() {
+      alert('Stakeholder details saved!');
+      disableEdit();
+    }
+    function populatePanel(name) {
+      document.getElementById('stakeholder-name').innerText = name;
+    }
+  </script>
+
+<script>
+  function navigateTo(url) {
+    if (url !== '#') {
+      window.location.href = url;
+    }
+  }
+</script>
+</body>
+</html>

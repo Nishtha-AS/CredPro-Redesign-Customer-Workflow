@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add New Stakeholder</title>
+  <link rel="stylesheet" href="screen1.css" />
+  <link rel="stylesheet" href="screen2.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<style>
+/* === Scoped Styles for stakeholder2.html === */
+
+.content .card.light-blue {
+  background-color: #eef7ff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.card.light-blue h3 {
+  font-size: 18px;
+  color: #1f2d3d;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.form-top-search {
+  margin-bottom: 1.5rem;
+}
+
+.form-top-search input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #cdd8df;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="tel"],
+.form-group select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  font-size: 14px;
+  color: #111;
+}
+
+.form-group input:disabled {
+  background-color: #f0f0f0;
+  color: #777;
+}
+
+.radio-group,
+.checkbox-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.radio-group label,
+.checkbox-group label {
+  font-size: 13px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #333;
+}
+
+.form-group.full-width {
+  grid-column: span 4;
+}
+
+.form-group.align-right {
+  justify-content: end;
+  text-align: right;
+}
+
+.save-btn {
+  background-color: #0052cc;
+  color: white;
+  padding: 10px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: #003d99;
+}
+
+  </style>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="top-nav">
+      <div class="header-left">
+        <img class="logo" src="assets/logo-au.png" alt="AU Logo" />
+        <img class="logo" src="assets/logo-credpro.png" alt="CredPro Logo" />
+        <div class="search-wrapper">
+          <img src="assets/icon-search.svg" class="icon" alt="Search" />
+          <input type="text" placeholder="Search Customer Name/ID/CRM ID/CBS ID/Phone" />
+          <select>
+            <option>Search by</option>
+          </select>
+        </div>
+      </div>
+      <div class="header-right">
+        <img src="assets/icon-inbox.svg" alt="Inbox" />
+        <img src="assets/icon-filter.svg" alt="tasks" />
+        <img src="assets/icon-help.svg" alt="Help" />
+        <img src="assets/icon-dashboard.svg" alt="Dashboard" />
+        <img src="assets/icon-user.svg" alt="User Add" />
+        <div class="user-profile">
+          <div class="avatar">VA</div>
+          <div class="user-info">
+            <strong>Vivek Agnihotri</strong>
+            <span>Business</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Layout -->
+    <div class="main-content">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="client-info">
+          <p>Client Name <strong>J K Singh</strong></p>
+          <p>Group <strong>J K Singh & Company</strong></p>
+        </div>
+        <div class="sidebar-sections">
+            <div class="section orange">
+              <h4>Heading 01</h4>
+              <ul>
+                <li onclick="navigateTo('general-info.html')">General Information</li>
+                <li class="active" onclick="navigateTo('stakeholder1.html')">Stakeholder Details</li>
+                <li onclick="navigateTo('associates.html')">Associate details</li>
+                <li onclick="navigateTo('customer-identifier.html')">Customer Identifier</li>
+                <li onclick="navigateTo('contact-person.html')">Contact Person</li>
+                <li onclick="navigateTo('address.html')">Address</li>
+              </ul>
+            </div>
+            <div class="section blue">
+                <h4>Heading 02</h4>
+                <ul>
+                  <li onclick="navigateTo('litigation.html')">Litigation</li>
+                  <li onclick="navigateTo('defaulter.html')">Defaulter</li>
+                  <li onclick="navigateTo('external-rights.html')">External Rights etc.</li>
+                </ul>
+              </div>
+              <div class="section purple">
+                <h4>Heading 03</h4>
+                <ul>
+                  <li onclick="navigateTo('alias.html')">Alias</li>
+                  <li onclick="navigateTo('lead-details.html')">Lead Details</li>
+                  <li onclick="navigateTo('agri-project.html')">Agri Project etc.</li>
+                  <li onclick="navigateTo('charges-details.html')">Charges Details</li>
+                  <li onclick="navigateTo('other-relationships.html')">Other Relationships</li>
+                </ul>
+              </div>
+              <div class="section red">
+                <h4>Heading 04</h4>
+                <ul>
+                  <li onclick="navigateTo('stock-position.html')">Stock Position And Number Of Employee</li>
+                  <li onclick="navigateTo('relationships.html')">Relationships</li>
+                  <li onclick="navigateTo('reference-check.html')">Reference Check</li>
+                </ul>
+              </div>
+      </aside>
+
+      <main class="content">
+        <div class="card light-blue">
+          <div class="card-header">
+            <h3>Add New Stakeholder Details</h3>
+          </div>
+          <div class="form-top-search">
+            <input type="text" placeholder="Search by PAN or CIF no" />
+          </div>
+          <form class="form-grid">
+            <div class="form-group full-width">
+              <label>Salutation*</label>
+              <div class="radio-group">
+                <label><input type="radio" name="salutation"> Mr.</label>
+                <label><input type="radio" name="salutation"> Ms.</label>
+                <label><input type="radio" name="salutation"> Mrs.</label>
+              </div>
+            </div>
+
+            <div class="form-group"><label>First Name*</label><input type="text" /></div>
+            <div class="form-group"><label>Middle Name*</label><input type="text" /></div>
+            <div class="form-group"><label>Last Name*</label><input type="text" /></div>
+            <div class="form-group"><label>Father Full Name*</label><input type="text" /></div>
+            <div class="form-group"><label>Date of Birth*</label><input type="date" /></div>
+            <div class="form-group"><label>PAN*</label><input type="text" /></div>
+            <div class="form-group"><label>DIN*</label><input type="text" /></div>
+            <div class="form-group"><label>Qualification*</label><select><option>Select</option></select></div>
+            <div class="form-group"><label>Phone*</label><input type="text" /></div>
+            <div class="form-group"><label>Address*</label><input type="text" /></div>
+            <div class="form-group">
+              <label>Gender*</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" /> Male</label>
+                <label><input type="checkbox" /> Female</label>
+                <label><input type="checkbox" /> Transgender</label>
+              </div>
+            </div>
+            <div class="form-group"><label>Country*</label><input type="text" value="India" disabled /></div>
+            <div class="form-group"><label>State*</label><select><option>Select</option></select></div>
+            <div class="form-group"><label>City*</label><select><option>Select</option></select></div>
+            <div class="form-group"><label>Pincode*</label><input type="text" /></div>
+            <div class="form-group"><label>Stakeholder Type*</label><select><option>Select</option></select></div>
+            <div class="form-group"><label>Mother's Name*</label><input type="text" /></div>
+            <div class="form-group">
+              <label>Marital Status*</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" /> Married</label>
+                <label><input type="checkbox" /> Single</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Is KMP*</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" /> Yes</label>
+                <label><input type="checkbox" /> No</label>
+              </div>
+            </div>
+            <div class="form-group"><label>Father/Spouse’s Name*</label><input type="text" /></div>
+            <div class="form-group"><label>Caste*</label><select><option>Select</option></select></div>
+            <div class="form-group"><label>Minority*</label><select><option>Select</option></select></div>
+            <div class="form-group"><label>Source*</label><input type="text" value="Manual" disabled /></div>
+            <div class="form-group">
+              <label>Relationship with official/Director of the bank*</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" /> Yes</label>
+                <label><input type="checkbox" /> No</label>
+              </div>
+            </div>
+            <div class="form-group"><label>Relationship Details*</label><input type="text" value="--" disabled /></div>
+            <div class="form-group"><label>Appointed as director of any other bank*</label><input type="text" value="--" disabled /></div>
+            <div class="form-group"><label>Relationship with official/Director of the bank*</label><input type="text" value="Manual" disabled /></div>
+            <div class="form-group"><label>Comment*</label><input type="text" /></div>
+            <div class="form-group"><label>Co-Borrower*</label><select><option>Select</option></select></div>
+            <div class="form-group"><label>Appointment Date*</label><input type="date" /></div>
+            <div class="form-group"><label>CIF</label><input type="text" /></div>
+            <div class="form-group"><label>Is Authorised Signatory*</label><select><option>Select</option></select></div>
+
+            <div class="form-group full-width align-right">
+              <button class="save-btn">💾 Save</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(url) {
+      if (url !== '#') {
+        window.location.href = url;
+      }
+    }
+  </script>
+</body>
+</html>
